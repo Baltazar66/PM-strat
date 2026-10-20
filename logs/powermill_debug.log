@@ -1,0 +1,4 @@
+2026-10-21 01:37:06,269 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:37:06,270 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:37:06,270 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:37:06,270 - ERROR - powermill_strategy_app - PowerMill connection failed: win32com not available on this system. PowerMill COM is only available on Windows.

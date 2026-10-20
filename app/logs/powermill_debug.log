@@ -1,0 +1,20 @@
+2026-10-21 01:35:51,237 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:35:51,238 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:35:51,238 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:35:51,238 - ERROR - powermill_strategy_app - PowerMill connection failed: win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:36:19,124 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:36:19,128 - WARNING - powermill_strategy_app - GetActiveObject failed for PowerMill.Application: (-2147221008, 'Не был произведен вызов CoInitialize.', None, None)
+2026-10-21 01:36:19,130 - WARNING - powermill_strategy_app - GetActiveObject failed for PowerMill.Application.2024: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:36:19,132 - WARNING - powermill_strategy_app - GetActiveObject failed for Autodesk.PowerMill.Application: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:36:19,134 - WARNING - powermill_strategy_app - GetActiveObject failed for Autodesk.PowerMill.Application.2024: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:36:19,136 - WARNING - powermill_strategy_app - GetActiveObject failed for PowerMill.Application.2023: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:36:19,138 - WARNING - powermill_strategy_app - GetActiveObject failed for PowerMill.Application.2022: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:36:19,139 - WARNING - powermill_strategy_app - Dispatch failed for PowerMill.Application: (-2147221008, 'Не был произведен вызов CoInitialize.', None, None)
+2026-10-21 01:36:19,143 - WARNING - powermill_strategy_app - Dispatch failed for PowerMill.Application.2024: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:36:19,146 - WARNING - powermill_strategy_app - Dispatch failed for Autodesk.PowerMill.Application: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:36:19,149 - WARNING - powermill_strategy_app - Dispatch failed for Autodesk.PowerMill.Application.2024: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:36:19,152 - WARNING - powermill_strategy_app - Dispatch failed for PowerMill.Application.2023: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:36:19,155 - WARNING - powermill_strategy_app - Dispatch failed for PowerMill.Application.2022: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:36:19,156 - ERROR - powermill_strategy_app - PowerMill connection failed: Dispatch failed for PowerMill.Application.2022: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:36:19,156 - INFO - powermill_strategy_app - PowerMill check result: {'connected': False, 'mode': 'auto', 'host': '127.0.0.1', 'port': 5000, 'status': "Dispatch failed for PowerMill.Application.2022: (-2147221005, 'Недопустимая строка с указанием класса', None, None)", 'error': "Dispatch failed for PowerMill.Application.2022: (-2147221005, 'Недопустимая строка с указанием класса', None, None)", 'project_name': None, 'model_name': None, 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 01:36:19,157 - ERROR - powermill_strategy_app - PowerMill connection failed in GUI: Dispatch failed for PowerMill.Application.2022: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
