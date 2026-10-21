@@ -5,6 +5,11 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 try:
+    import pythoncom
+except ImportError:  # pragma: no cover - installed only on Windows
+    pythoncom = None
+
+try:
     import win32com.client
 except ImportError:  # pragma: no cover - installed only on Windows
     win32com = None
@@ -46,6 +51,8 @@ class PowerMillConnector:
         self.app: Optional[Any] = None
         self.project: Optional[Any] = None
         self.model: Optional[Any] = None
+        self.project_name: Optional[str] = None
+        self.model_name: Optional[str] = None
         self._connected = False
         self._status_message = "not connected"
         self._last_error: Optional[str] = None
@@ -96,55 +103,79 @@ class PowerMillConnector:
 
         self._last_error = None
         self.logger.info("Starting PowerMill COM connection attempt. Tried prog IDs: %s", self.PROG_IDS)
-        self.app = self._try_get_active_object() or self._try_dispatch_object()
-        if self.app is None:
+
+        com_initialized = False
+        try:
+            if pythoncom is not None:
+                self.logger.info("Initializing COM apartment for PowerMill access.")
+                pythoncom.CoInitialize()
+                com_initialized = True
+
+            self.app = self._try_get_active_object() or self._try_dispatch_object()
+            if self.app is None:
+                self._connected = False
+                self._status_message = self._last_error or "PowerMill COM object was not found. Start PowerMill and retry."
+                self.logger.error("PowerMill connection failed: %s", self._status_message)
+                return False
+
+            self._connected = True
+            self._status_message = "connected to running PowerMill instance"
+            self._last_error = None
+            self.logger.info("PowerMill connection successful. Status: %s", self._status_message)
+
+            try:
+                self.project = getattr(self.app, "Project", None)
+                self.logger.info("PowerMill project reference obtained: %s", self.project is not None)
+                if self.project is not None:
+                    self.project_name = getattr(self.project, "Name", None)
+            except Exception as exc:
+                self._last_error = f"Unable to access PowerMill Project: {exc}"
+                self.logger.exception(self._last_error)
+                self.project = None
+                self.project_name = None
+
+            try:
+                if self.project is not None and hasattr(self.project, "Models") and len(self.project.Models) > 0:
+                    self.model = self.project.Models[0]
+                    self.model_name = getattr(self.model, 'Name', None)
+                    self.logger.info("PowerMill model loaded: %s", self.model_name)
+            except Exception as exc:
+                self._last_error = f"Unable to access PowerMill models: {exc}"
+                self.logger.exception(self._last_error)
+                self.model = None
+                self.model_name = None
+
+            return True
+        except Exception as exc:
+            self._last_error = f"COM initialization failed: {exc}"
+            self.logger.exception(self._last_error)
+            self.app = None
             self._connected = False
-            self._status_message = self._last_error or "PowerMill COM object was not found. Start PowerMill and retry."
-            self.logger.error("PowerMill connection failed: %s", self._status_message)
+            self._status_message = self._last_error
             return False
-
-        self._connected = True
-        self._status_message = "connected to running PowerMill instance"
-        self._last_error = None
-        self.logger.info("PowerMill connection successful. Status: %s", self._status_message)
-
-        try:
-            self.project = getattr(self.app, "Project", None)
-            self.logger.info("PowerMill project reference obtained: %s", self.project is not None)
-        except Exception as exc:
-            self._last_error = f"Unable to access PowerMill Project: {exc}"
-            self.logger.exception(self._last_error)
-            self.project = None
-
-        try:
-            if self.project is not None and hasattr(self.project, "Models") and len(self.project.Models) > 0:
-                self.model = self.project.Models[0]
-                self.logger.info("PowerMill model loaded: %s", getattr(self.model, 'Name', None))
-        except Exception as exc:
-            self._last_error = f"Unable to access PowerMill models: {exc}"
-            self.logger.exception(self._last_error)
-            self.model = None
-
-        return True
+        finally:
+            if pythoncom is not None and com_initialized:
+                try:
+                    pythoncom.CoUninitialize()
+                    self.logger.info("COM apartment released after PowerMill project/model read.")
+                except Exception:
+                    pass
 
     def get_connection_status(self) -> Dict[str, object]:
         connected = self.connect()
 
-        project_name = None
-        model_name = None
+        project_name = self.project_name
+        model_name = self.model_name
         model_count = 0
         stock_count = 0
 
         try:
             if self.project is not None:
-                project_name = getattr(self.project, "Name", None)
                 model_count = len(self.project.Models)
                 stock_count = len(self.project.StockModels)
-                if self.model is not None:
-                    model_name = getattr(self.model, "Name", None)
         except Exception:
-            project_name = None
-            model_name = None
+            model_count = 0
+            stock_count = 0
 
         return {
             "connected": connected,

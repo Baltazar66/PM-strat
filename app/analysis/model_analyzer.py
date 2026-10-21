@@ -22,6 +22,11 @@ class ModelAnalysis:
     bounding_box_mm: List[float]
     features: List[Feature] = field(default_factory=list)
     machining_zones: List[str] = field(default_factory=list)
+    surface_area_mm2: float = 0.0
+    max_depth_mm: float = 15.0
+    face_count: int = 0
+    vertices_count: int = 0
+    feature_points: List[List[float]] = field(default_factory=list)
 
 
 class ModelAnalyzer:
@@ -58,10 +63,85 @@ class ModelAnalyzer:
             max(1.0, max(zs) - min(zs)),
         ]
 
-    def _read_geometry(self) -> tuple[float, List[float], float, float]:
+    def _read_mesh_metrics(self, model_path: str):
+        suffix = Path(model_path).suffix.lower()
+        default = {
+            "volume_mm3": 245000.0,
+            "bounding_box_mm": [120.0, 85.0, 30.0],
+            "surface_area_mm2": 42000.0,
+            "max_depth_mm": 15.0,
+            "face_count": 0,
+            "vertices_count": 0,
+            "feature_points": [[0.0, 0.0, 0.0], [10.0, 10.0, 10.0]],
+        }
+
+        try:
+            if suffix in {".stl", ".obj", ".off", ".ply", ".3mf"}:
+                try:
+                    import trimesh
+
+                    mesh = trimesh.load(model_path, force="scene", process=False)
+                    if mesh is None:
+                        return default
+                    if isinstance(mesh, trimesh.Scene):
+                        mesh = mesh.to_geometry() if hasattr(mesh, "to_geometry") else mesh.dump(concatenate=True)
+                    if mesh is None:
+                        return default
+
+                    volume_value = float(abs(getattr(mesh, "volume", 0.0) or 0.0))
+                    bounds = mesh.bounds
+                    extent = [float(v) for v in (bounds[1] - bounds[0])] if bounds.size else [1.0, 1.0, 1.0]
+                    feature_points = []
+                    if hasattr(mesh, "vertices") and len(mesh.vertices):
+                        sample = mesh.vertices[: min(8, len(mesh.vertices))]
+                        feature_points = [[float(x), float(y), float(z)] for x, y, z in sample]
+                    if not feature_points:
+                        feature_points = [[0.0, 0.0, 0.0], [max(1.0, extent[0]), max(1.0, extent[1]), max(1.0, extent[2])]]
+
+                    return {
+                        "volume_mm3": volume_value,
+                        "bounding_box_mm": [float(v) for v in extent],
+                        "surface_area_mm2": float(mesh.area),
+                        "max_depth_mm": max(extent) if extent else 15.0,
+                        "face_count": int(len(mesh.faces)) if hasattr(mesh, "faces") else 0,
+                        "vertices_count": int(len(mesh.vertices)) if hasattr(mesh, "vertices") else 0,
+                        "feature_points": feature_points,
+                    }
+                except Exception:
+                    pass
+
+            if suffix in {".stl", ".obj", ".off", ".ply"}:
+                text = Path(model_path).read_text(encoding="utf-8", errors="ignore")
+                vertex_matches = re.findall(r"vertex\s+([-+0-9.eE]+)\s+([-+0-9.eE]+)\s+([-+0-9.eE]+)", text, flags=re.IGNORECASE)
+                if vertex_matches:
+                    points = [(float(x), float(y), float(z)) for x, y, z in vertex_matches]
+                    xs = [p[0] for p in points]
+                    ys = [p[1] for p in points]
+                    zs = [p[2] for p in points]
+                    dx = max(xs) - min(xs) if xs else 1.0
+                    dy = max(ys) - min(ys) if ys else 1.0
+                    dz = max(zs) - min(zs) if zs else 1.0
+                    extent = [dx, dy, dz]
+                    volume = max(dx * dy * dz, 1.0)
+                    surface_area = max(2.0 * (dx * dy + dy * dz + dz * dx), 1.0)
+                    return {
+                        "volume_mm3": volume,
+                        "bounding_box_mm": [max(float(v), 1.0) for v in extent],
+                        "surface_area_mm2": surface_area,
+                        "max_depth_mm": max(extent) if extent else 15.0,
+                        "face_count": max(len(vertex_matches) // 3, 1),
+                        "vertices_count": len(points),
+                        "feature_points": [[float(x), float(y), float(z)] for x, y, z in points[:8]],
+                    }
+        except Exception:
+            pass
+
+        return default
+
+    def _read_geometry(self) -> tuple[float, List[float], float, float, int, int, List[List[float]]]:
         model_path = self.model_path
         if not model_path or not Path(model_path).exists():
-            return (245000.0, [120.0, 85.0, 30.0], 42000.0, 15.0)
+            return (245000.0, [120.0, 85.0, 30.0], 42000.0, 15.0, 128, 256, [[0.0, 0.0, 0.0], [120.0, 85.0, 30.0]])
 
         suffix = Path(model_path).suffix.lower()
         try:
@@ -71,27 +151,23 @@ class ModelAnalyzer:
                 if bounds is not None:
                     length, width, height = bounds
                     volume = max(length * width * height, 1.0)
-                    return (volume, [float(v) for v in bounds], max(length * width, 1.0), max(bounds))
+                    surface_area = max(length * width, 1.0)
+                    return (volume, [float(v) for v in bounds], surface_area, max(bounds), 0, 0, [[0.0, 0.0, 0.0], [float(length), float(width), float(height)]])
 
-            if suffix in {".stl", ".obj"}:
-                try:
-                    import trimesh
-
-                    mesh = trimesh.load(model_path, force="scene")
-                    if isinstance(mesh, trimesh.Scene):
-                        mesh = mesh.dump(concatenate=True)
-                    volume = float(mesh.volume)
-                    bounds = mesh.bounds
-                    extent = (bounds[1] - bounds[0]).tolist()
-                    surface_area = float(mesh.area)
-                    max_depth = max(extent) if extent else 15.0
-                    return (volume, [float(v) for v in extent], surface_area, max_depth)
-                except Exception:
-                    pass
+            metrics = self._read_mesh_metrics(model_path)
+            return (
+                float(metrics["volume_mm3"]),
+                [float(v) for v in metrics["bounding_box_mm"]],
+                float(metrics["surface_area_mm2"]),
+                float(metrics["max_depth_mm"]),
+                int(metrics["face_count"]),
+                int(metrics["vertices_count"]),
+                [[float(v) for v in point] for point in metrics["feature_points"]],
+            )
         except Exception:
             pass
 
-        return (245000.0, [120.0, 85.0, 30.0], 42000.0, 15.0)
+        return (245000.0, [120.0, 85.0, 30.0], 42000.0, 15.0, 128, 256, [[0.0, 0.0, 0.0], [120.0, 85.0, 30.0]])
 
     def analyze(self) -> ModelAnalysis:
         if self.powermill_snapshot:
@@ -100,9 +176,12 @@ class ModelAnalyzer:
             bounding_box_mm = [float(v) for v in snapshot.get("bounding_box_mm", [120.0, 85.0, 30.0])]
             surface_area_mm2 = float(snapshot.get("surface_area_mm2", 42000.0))
             max_depth_mm = float(snapshot.get("max_depth_mm", 15.0))
+            face_count = int(snapshot.get("face_count", 128))
+            vertices_count = int(snapshot.get("vertices_count", 256))
+            feature_points = snapshot.get("feature_points", [[0.0, 0.0, 0.0], [120.0, 85.0, 30.0]])
             model_path = snapshot.get("model_name") or self.model_path or "PowerMill_active_model"
         else:
-            volume_mm3, bounding_box_mm, surface_area_mm2, max_depth_mm = self._read_geometry()
+            volume_mm3, bounding_box_mm, surface_area_mm2, max_depth_mm, face_count, vertices_count, feature_points = self._read_geometry()
             model_path = self.model_path or "demo_model.stl"
 
         features = [
@@ -139,4 +218,9 @@ class ModelAnalyzer:
             bounding_box_mm=bounding_box_mm,
             features=features,
             machining_zones=zones,
+            surface_area_mm2=surface_area_mm2,
+            max_depth_mm=max_depth_mm,
+            face_count=face_count,
+            vertices_count=vertices_count,
+            feature_points=[[float(v) for v in point] for point in feature_points],
         )

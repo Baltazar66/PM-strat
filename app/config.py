@@ -18,10 +18,43 @@ class ToolConfig:
     feed_per_tooth: float = 0.06
     material: str = "aluminium"
     max_depth_mm: float = 20.0
+    safe_z_mm: float = 5.0
+    stepdown_mm: float = 2.5
+    stock_allowance_mm: float = 0.3
+    roughing_feed_mm_min: Optional[float] = None
+    semi_finishing_feed_mm_min: Optional[float] = None
+    finishing_feed_mm_min: Optional[float] = None
 
     @property
     def feed_rate_mm_min(self) -> float:
         return max(1.0, self.max_rpm * self.feed_per_tooth * 2)
+
+    def get_operation_feed(self, operation: str, fallback: float) -> float:
+        if operation == "roughing" and self.roughing_feed_mm_min is not None:
+            return float(self.roughing_feed_mm_min)
+        if operation == "semi_finishing" and self.semi_finishing_feed_mm_min is not None:
+            return float(self.semi_finishing_feed_mm_min)
+        if operation == "finishing" and self.finishing_feed_mm_min is not None:
+            return float(self.finishing_feed_mm_min)
+        return float(fallback)
+
+    def get_operation_stepdown(self, operation: str, fallback: float) -> float:
+        if operation == "roughing":
+            return float(self.stepdown_mm if self.stepdown_mm and self.stepdown_mm > 0 else fallback)
+        if operation == "semi_finishing":
+            return float((self.stepdown_mm / 2.0) if self.stepdown_mm and self.stepdown_mm > 0 else fallback / 2.0)
+        if operation == "finishing":
+            return float(min(self.stepdown_mm or fallback, max(0.5, (self.stepdown_mm or fallback) / 3.0)))
+        return float(fallback)
+
+    def get_operation_allowance(self, operation: str, fallback: float) -> float:
+        if operation == "roughing":
+            return float(self.stock_allowance_mm if self.stock_allowance_mm and self.stock_allowance_mm > 0 else fallback)
+        if operation == "semi_finishing":
+            return float(0.15 if self.stock_allowance_mm <= 0 else min(self.stock_allowance_mm, 0.15))
+        if operation == "finishing":
+            return float(max(0.05, min(self.stock_allowance_mm or fallback, 0.25)))
+        return float(fallback)
 
 
 @dataclass
@@ -29,9 +62,6 @@ class MachineSettings:
     name: str = "Default_3Axis"
     material: str = "aluminium"
     max_spindle_rpm: int = 18000
-    cutting_speed_m_min: float = 180.0
-    drilling_feed_mm_min: float = 220.0
-    plunge_feed_mm_min: float = 180.0
     safe_z_mm: float = 5.0
     stepdown_mm: float = 2.5
     stock_allowance_mm: float = 0.3
@@ -64,12 +94,9 @@ class Settings:
             name=os.getenv("MACHINE_NAME", "Default_3Axis"),
             material=os.getenv("MATERIAL_TYPE", "aluminium"),
             max_spindle_rpm=int(os.getenv("MAX_SPINDLE_RPM", "18000")),
-            cutting_speed_m_min=float(os.getenv("CUTTING_SPEED_M_MIN", "180.0")),
-            drilling_feed_mm_min=float(os.getenv("DRILLING_FEED_MM_MIN", "220.0")),
-            plunge_feed_mm_min=float(os.getenv("PLUNGE_FEED_MM_MIN", "180.0")),
             safe_z_mm=float(os.getenv("SAFE_Z_MM", "5.0")),
-            stepdown_mm=float(os.getenv("STEPDOWN_MM", "2.5")),
-            stock_allowance_mm=float(os.getenv("STOCK_ALLOWANCE_MM", "0.3")),
+            stepdown_mm=float(os.getenv("DEFAULT_STEPDOWN_MM", "2.5")),
+            stock_allowance_mm=float(os.getenv("DEFAULT_STOCK_ALLOWANCE_MM", "0.3")),
         )
 
     def _load_tool_library(self) -> List[ToolConfig]:
@@ -87,12 +114,9 @@ class Settings:
                 name=machine.get("name", self.machine.name),
                 material=machine.get("material", self.machine.material),
                 max_spindle_rpm=int(machine.get("max_spindle_rpm", self.machine.max_spindle_rpm)),
-                cutting_speed_m_min=float(machine.get("cutting_speed_m_min", self.machine.cutting_speed_m_min)),
-                drilling_feed_mm_min=float(machine.get("drilling_feed_mm_min", self.machine.drilling_feed_mm_min)),
-                plunge_feed_mm_min=float(machine.get("plunge_feed_mm_min", self.machine.plunge_feed_mm_min)),
                 safe_z_mm=float(machine.get("safe_z_mm", self.machine.safe_z_mm)),
-                stepdown_mm=float(machine.get("stepdown_mm", self.machine.stepdown_mm)),
-                stock_allowance_mm=float(machine.get("stock_allowance_mm", self.machine.stock_allowance_mm)),
+                stepdown_mm=float(machine.get("stepdown_mm", getattr(self.machine, "stepdown_mm", 2.5))),
+                stock_allowance_mm=float(machine.get("stock_allowance_mm", getattr(self.machine, "stock_allowance_mm", 0.3))),
             )
 
             tools_data = payload.get("tools", [])
@@ -106,12 +130,18 @@ class Settings:
                     diameter_mm=float(item.get("diameter_mm", 6.0)),
                     flute_length_mm=float(item.get("flute_length_mm", 25.0)),
                     max_rpm=int(item.get("max_rpm", self.machine.max_spindle_rpm)),
-                    cutting_speed_m_min=float(item.get("cutting_speed_m_min", self.machine.cutting_speed_m_min)),
-                    plunge_feed_mm_min=float(item.get("plunge_feed_mm_min", self.machine.plunge_feed_mm_min)),
-                    drilling_feed_mm_min=float(item.get("drilling_feed_mm_min", self.machine.drilling_feed_mm_min)),
+                    cutting_speed_m_min=float(item.get("cutting_speed_m_min", 180.0)),
+                    plunge_feed_mm_min=float(item.get("plunge_feed_mm_min", 180.0)),
+                    drilling_feed_mm_min=float(item.get("drilling_feed_mm_min", 220.0)),
                     feed_per_tooth=float(item.get("feed_per_tooth", 0.06)),
                     material=item.get("material", self.machine.material),
                     max_depth_mm=float(item.get("max_depth_mm", 10.0)),
+                    safe_z_mm=float(item.get("safe_z_mm", self.machine.safe_z_mm)),
+                    stepdown_mm=float(item.get("stepdown_mm", getattr(self.machine, "stepdown_mm", 2.5))),
+                    stock_allowance_mm=float(item.get("stock_allowance_mm", getattr(self.machine, "stock_allowance_mm", 0.3))),
+                    roughing_feed_mm_min=(float(item["roughing_feed_mm_min"]) if "roughing_feed_mm_min" in item and item["roughing_feed_mm_min"] is not None else None),
+                    semi_finishing_feed_mm_min=(float(item["semi_finishing_feed_mm_min"]) if "semi_finishing_feed_mm_min" in item and item["semi_finishing_feed_mm_min"] is not None else None),
+                    finishing_feed_mm_min=(float(item["finishing_feed_mm_min"]) if "finishing_feed_mm_min" in item and item["finishing_feed_mm_min"] is not None else None),
                 )
                 for item in tools_data
             ]
@@ -120,9 +150,63 @@ class Settings:
 
     def _default_tools(self) -> List[ToolConfig]:
         return [
-            ToolConfig(name="EM_6", tool_type="endmill", diameter_mm=6.0, flute_length_mm=25.0, max_rpm=16000, cutting_speed_m_min=180.0, plunge_feed_mm_min=180.0, drilling_feed_mm_min=220.0, feed_per_tooth=0.06, material="aluminium", max_depth_mm=16.0),
-            ToolConfig(name="EM_8", tool_type="endmill", diameter_mm=8.0, flute_length_mm=30.0, max_rpm=14000, cutting_speed_m_min=170.0, plunge_feed_mm_min=160.0, drilling_feed_mm_min=200.0, feed_per_tooth=0.06, material="aluminium", max_depth_mm=20.0),
-            ToolConfig(name="DR_5", tool_type="drill", diameter_mm=5.0, flute_length_mm=40.0, max_rpm=12000, cutting_speed_m_min=90.0, plunge_feed_mm_min=120.0, drilling_feed_mm_min=260.0, feed_per_tooth=0.08, material="aluminium", max_depth_mm=35.0),
+            ToolConfig(
+                name="EM_6",
+                tool_type="endmill",
+                diameter_mm=6.0,
+                flute_length_mm=25.0,
+                max_rpm=16000,
+                cutting_speed_m_min=180.0,
+                plunge_feed_mm_min=180.0,
+                drilling_feed_mm_min=220.0,
+                feed_per_tooth=0.06,
+                material="aluminium",
+                max_depth_mm=16.0,
+                safe_z_mm=5.0,
+                stepdown_mm=2.5,
+                stock_allowance_mm=0.3,
+                roughing_feed_mm_min=1800.0,
+                semi_finishing_feed_mm_min=1400.0,
+                finishing_feed_mm_min=900.0,
+            ),
+            ToolConfig(
+                name="EM_8",
+                tool_type="endmill",
+                diameter_mm=8.0,
+                flute_length_mm=30.0,
+                max_rpm=14000,
+                cutting_speed_m_min=170.0,
+                plunge_feed_mm_min=160.0,
+                drilling_feed_mm_min=200.0,
+                feed_per_tooth=0.06,
+                material="aluminium",
+                max_depth_mm=20.0,
+                safe_z_mm=5.0,
+                stepdown_mm=3.0,
+                stock_allowance_mm=0.25,
+                roughing_feed_mm_min=1700.0,
+                semi_finishing_feed_mm_min=1200.0,
+                finishing_feed_mm_min=800.0,
+            ),
+            ToolConfig(
+                name="DR_5",
+                tool_type="drill",
+                diameter_mm=5.0,
+                flute_length_mm=40.0,
+                max_rpm=12000,
+                cutting_speed_m_min=90.0,
+                plunge_feed_mm_min=120.0,
+                drilling_feed_mm_min=260.0,
+                feed_per_tooth=0.08,
+                material="aluminium",
+                max_depth_mm=35.0,
+                safe_z_mm=5.0,
+                stepdown_mm=1.2,
+                stock_allowance_mm=0.05,
+                roughing_feed_mm_min=1200.0,
+                semi_finishing_feed_mm_min=900.0,
+                finishing_feed_mm_min=650.0,
+            ),
         ]
 
 

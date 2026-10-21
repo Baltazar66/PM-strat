@@ -2,3 +2,406 @@
 2026-10-21 01:37:06,270 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
 2026-10-21 01:37:06,270 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
 2026-10-21 01:37:06,270 - ERROR - powermill_strategy_app - PowerMill connection failed: win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:49:04,037 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:49:04,042 - WARNING - powermill_strategy_app - GetActiveObject failed for PowerMill.Application: (-2147221008, 'Не был произведен вызов CoInitialize.', None, None)
+2026-10-21 01:49:04,046 - WARNING - powermill_strategy_app - GetActiveObject failed for PowerMill.Application.2024: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:04,048 - WARNING - powermill_strategy_app - GetActiveObject failed for Autodesk.PowerMill.Application: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:04,050 - WARNING - powermill_strategy_app - GetActiveObject failed for Autodesk.PowerMill.Application.2024: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:04,052 - WARNING - powermill_strategy_app - GetActiveObject failed for PowerMill.Application.2023: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:04,055 - WARNING - powermill_strategy_app - GetActiveObject failed for PowerMill.Application.2022: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:04,056 - WARNING - powermill_strategy_app - Dispatch failed for PowerMill.Application: (-2147221008, 'Не был произведен вызов CoInitialize.', None, None)
+2026-10-21 01:49:04,059 - WARNING - powermill_strategy_app - Dispatch failed for PowerMill.Application.2024: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:04,063 - WARNING - powermill_strategy_app - Dispatch failed for Autodesk.PowerMill.Application: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:04,066 - WARNING - powermill_strategy_app - Dispatch failed for Autodesk.PowerMill.Application.2024: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:04,069 - WARNING - powermill_strategy_app - Dispatch failed for PowerMill.Application.2023: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:04,074 - WARNING - powermill_strategy_app - Dispatch failed for PowerMill.Application.2022: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:04,074 - ERROR - powermill_strategy_app - PowerMill connection failed: GetActiveObject failed for PowerMill.Application: (-2147221008, 'Не был произведен вызов CoInitialize.', None, None)
+2026-10-21 01:49:04,075 - INFO - powermill_strategy_app - PowerMill check result: {'connected': False, 'mode': 'auto', 'host': '127.0.0.1', 'port': 5000, 'status': "GetActiveObject failed for PowerMill.Application: (-2147221008, 'Не был произведен вызов CoInitialize.', None, None)", 'error': "GetActiveObject failed for PowerMill.Application: (-2147221008, 'Не был произведен вызов CoInitialize.', None, None)", 'project_name': None, 'model_name': None, 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 01:49:04,075 - ERROR - powermill_strategy_app - PowerMill connection failed in GUI: GetActiveObject failed for PowerMill.Application: (-2147221008, 'Не был произведен вызов CoInitialize.', None, None)
+2026-10-21 01:49:07,597 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:49:07,598 - WARNING - powermill_strategy_app - GetActiveObject failed for PowerMill.Application: (-2147221008, 'Не был произведен вызов CoInitialize.', None, None)
+2026-10-21 01:49:07,600 - WARNING - powermill_strategy_app - GetActiveObject failed for PowerMill.Application.2024: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:07,602 - WARNING - powermill_strategy_app - GetActiveObject failed for Autodesk.PowerMill.Application: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:07,604 - WARNING - powermill_strategy_app - GetActiveObject failed for Autodesk.PowerMill.Application.2024: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:07,605 - WARNING - powermill_strategy_app - GetActiveObject failed for PowerMill.Application.2023: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:07,607 - WARNING - powermill_strategy_app - GetActiveObject failed for PowerMill.Application.2022: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:07,608 - WARNING - powermill_strategy_app - Dispatch failed for PowerMill.Application: (-2147221008, 'Не был произведен вызов CoInitialize.', None, None)
+2026-10-21 01:49:07,612 - WARNING - powermill_strategy_app - Dispatch failed for PowerMill.Application.2024: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:07,615 - WARNING - powermill_strategy_app - Dispatch failed for Autodesk.PowerMill.Application: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:07,618 - WARNING - powermill_strategy_app - Dispatch failed for Autodesk.PowerMill.Application.2024: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:07,622 - WARNING - powermill_strategy_app - Dispatch failed for PowerMill.Application.2023: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:07,626 - WARNING - powermill_strategy_app - Dispatch failed for PowerMill.Application.2022: (-2147221005, 'Недопустимая строка с указанием класса', None, None)
+2026-10-21 01:49:07,626 - ERROR - powermill_strategy_app - PowerMill connection failed: GetActiveObject failed for PowerMill.Application: (-2147221008, 'Не был произведен вызов CoInitialize.', None, None)
+2026-10-21 01:49:07,626 - INFO - powermill_strategy_app - PowerMill check result: {'connected': False, 'mode': 'auto', 'host': '127.0.0.1', 'port': 5000, 'status': "GetActiveObject failed for PowerMill.Application: (-2147221008, 'Не был произведен вызов CoInitialize.', None, None)", 'error': "GetActiveObject failed for PowerMill.Application: (-2147221008, 'Не был произведен вызов CoInitialize.', None, None)", 'project_name': None, 'model_name': None, 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 01:49:07,627 - ERROR - powermill_strategy_app - PowerMill connection failed in GUI: GetActiveObject failed for PowerMill.Application: (-2147221008, 'Не был произведен вызов CoInitialize.', None, None)
+2026-10-21 01:50:07,060 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:50:07,060 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:50:07,061 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:50:07,061 - ERROR - powermill_strategy_app - PowerMill connection failed: win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:50:19,714 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:50:19,714 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:50:19,715 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:50:19,715 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:50:19,716 - ERROR - powermill_strategy_app - PowerMill connection failed: win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:50:19,720 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:50:19,720 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:50:19,720 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 01:50:19,720 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 01:50:19,721 - INFO - powermill_strategy_app - PowerMill project reference obtained: False
+2026-10-21 01:50:35,207 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:50:35,208 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:50:35,240 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 01:50:35,246 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 01:50:35,248 - INFO - powermill_strategy_app - PowerMill project reference obtained: False
+2026-10-21 01:50:51,276 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:50:51,277 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:50:51,323 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 01:50:51,335 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 01:50:51,337 - INFO - powermill_strategy_app - PowerMill project reference obtained: False
+2026-10-21 01:50:51,337 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 01:50:51,337 - INFO - powermill_strategy_app - PowerMill check result: {'connected': True, 'mode': 'live', 'host': '127.0.0.1', 'port': 5000, 'status': 'connected to running PowerMill instance', 'error': '', 'project_name': None, 'model_name': None, 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 01:51:21,781 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:51:21,781 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:51:21,816 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 01:51:21,822 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 01:51:21,822 - INFO - powermill_strategy_app - PowerMill project reference obtained: False
+2026-10-21 01:51:21,823 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 01:51:21,823 - INFO - powermill_strategy_app - PowerMill check result: {'connected': True, 'mode': 'live', 'host': '127.0.0.1', 'port': 5000, 'status': 'connected to running PowerMill instance', 'error': '', 'project_name': None, 'model_name': None, 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 01:51:21,829 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:51:21,829 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:51:21,843 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 01:51:21,850 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 01:51:21,851 - INFO - powermill_strategy_app - PowerMill project reference obtained: False
+2026-10-21 01:51:21,851 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 01:52:11,711 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:52:11,712 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:52:11,743 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 01:52:11,749 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 01:52:11,750 - INFO - powermill_strategy_app - PowerMill project reference obtained: False
+2026-10-21 01:52:11,751 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 01:52:34,188 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:52:34,189 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:52:34,189 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:52:34,189 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:52:34,191 - ERROR - powermill_strategy_app - PowerMill connection failed: win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:52:34,195 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:52:34,195 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:52:34,195 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 01:52:34,196 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 01:52:34,196 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 01:52:34,196 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 01:53:06,694 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:53:06,695 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:53:06,695 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:53:06,695 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:53:06,695 - ERROR - powermill_strategy_app - PowerMill connection failed: win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:53:06,697 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 01:53:06,700 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:53:06,701 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:53:06,701 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 01:53:06,701 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 01:53:06,701 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 01:53:06,702 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 01:53:06,702 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 01:53:07,234 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:53:07,234 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:53:07,264 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 01:53:07,264 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 01:53:07,319 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 01:53:07,542 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 01:53:07,556 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 01:53:07,557 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 01:54:35,705 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:54:35,705 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:54:35,735 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 01:54:35,736 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 01:54:35,788 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 01:54:35,999 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 01:54:36,013 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 01:54:58,672 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:54:58,673 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:54:58,722 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 01:54:58,722 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 01:54:58,796 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 01:54:59,037 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 01:54:59,052 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 01:54:59,053 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 01:54:59,054 - INFO - powermill_strategy_app - PowerMill check result: {'connected': True, 'mode': 'live', 'host': '127.0.0.1', 'port': 5000, 'status': 'connected to running PowerMill instance', 'error': '', 'project_name': None, 'model_name': None, 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 01:55:02,074 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:55:02,074 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:55:02,087 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 01:55:02,088 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 01:55:02,148 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 01:55:02,392 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 01:55:02,416 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 01:55:02,417 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 01:55:02,417 - INFO - powermill_strategy_app - PowerMill check result: {'connected': True, 'mode': 'live', 'host': '127.0.0.1', 'port': 5000, 'status': 'connected to running PowerMill instance', 'error': '', 'project_name': None, 'model_name': None, 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 01:55:18,573 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:55:18,573 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:55:18,586 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 01:55:18,586 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 01:55:18,644 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 01:55:18,863 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 01:55:18,877 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 01:55:18,878 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 01:55:18,879 - INFO - powermill_strategy_app - PowerMill check result: {'connected': True, 'mode': 'live', 'host': '127.0.0.1', 'port': 5000, 'status': 'connected to running PowerMill instance', 'error': '', 'project_name': None, 'model_name': None, 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 01:56:14,083 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:56:14,084 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:56:14,084 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:56:14,084 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:56:14,085 - ERROR - powermill_strategy_app - PowerMill connection failed: win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 01:56:14,086 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 01:56:14,090 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:56:14,090 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:56:14,090 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 01:56:14,091 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 01:56:14,091 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 01:56:14,091 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 01:56:14,091 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 01:56:14,641 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 01:56:14,641 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 01:56:14,670 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 01:56:14,671 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 01:56:14,723 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 01:56:14,950 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 01:56:14,966 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:02:02,014 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:02:02,014 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:02:02,042 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 02:02:02,043 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 02:02:02,097 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 02:02:02,370 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 02:02:02,384 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:02:02,385 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 02:02:02,385 - INFO - powermill_strategy_app - PowerMill check result: {'connected': True, 'mode': 'live', 'host': '127.0.0.1', 'port': 5000, 'status': 'connected to running PowerMill instance', 'error': '', 'project_name': None, 'model_name': 'Сборка1', 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 02:02:07,181 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:02:07,181 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:02:07,193 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 02:02:07,193 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 02:02:07,258 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 02:02:07,519 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 02:02:07,533 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:02:07,534 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 02:02:07,534 - INFO - powermill_strategy_app - PowerMill check result: {'connected': True, 'mode': 'live', 'host': '127.0.0.1', 'port': 5000, 'status': 'connected to running PowerMill instance', 'error': '', 'project_name': None, 'model_name': 'Сборка1', 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 02:02:07,540 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:02:07,540 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:02:07,552 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 02:02:07,552 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 02:02:07,607 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 02:02:07,837 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 02:02:07,851 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:02:07,852 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 02:02:13,166 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:02:13,166 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:02:13,178 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 02:02:13,179 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 02:02:13,240 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 02:02:13,513 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 02:02:13,527 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:02:13,527 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 02:02:13,528 - INFO - powermill_strategy_app - PowerMill check result: {'connected': True, 'mode': 'live', 'host': '127.0.0.1', 'port': 5000, 'status': 'connected to running PowerMill instance', 'error': '', 'project_name': None, 'model_name': 'Сборка1', 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 02:13:58,204 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:13:58,205 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:13:58,251 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 02:13:58,251 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 02:13:58,316 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 02:13:58,581 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 02:13:58,596 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:13:58,596 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 02:13:58,597 - INFO - powermill_strategy_app - PowerMill check result: {'connected': True, 'mode': 'live', 'host': '127.0.0.1', 'port': 5000, 'status': 'connected to running PowerMill instance', 'error': '', 'project_name': None, 'model_name': 'Сборка1', 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 02:22:34,661 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:22:34,662 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:22:34,663 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:22:34,663 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:22:34,663 - ERROR - powermill_strategy_app - PowerMill connection failed: win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:22:34,665 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:22:34,670 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:22:34,670 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:22:34,670 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 02:22:34,670 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 02:22:34,670 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 02:22:34,670 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 02:22:34,672 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:22:46,806 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:22:46,806 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:22:46,807 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:22:46,807 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:22:46,807 - ERROR - powermill_strategy_app - PowerMill connection failed: win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:22:46,810 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:22:46,813 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:22:46,814 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:22:46,814 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 02:22:46,814 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 02:22:46,814 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 02:22:46,815 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 02:22:46,815 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:22:52,165 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:22:52,166 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:22:52,167 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:22:52,167 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:22:52,168 - ERROR - powermill_strategy_app - PowerMill connection failed: win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:22:52,170 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:22:52,173 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:22:52,174 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:22:52,174 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 02:22:52,174 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 02:22:52,175 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 02:22:52,175 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 02:22:52,175 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:22:56,803 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:22:56,804 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:22:56,804 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:22:56,804 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:22:56,804 - ERROR - powermill_strategy_app - PowerMill connection failed: win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:22:56,806 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:22:56,810 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:22:56,810 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:22:56,811 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 02:22:56,811 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 02:22:56,811 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 02:22:56,811 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 02:22:56,812 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:23:01,449 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:23:01,449 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:23:01,450 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:23:01,450 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:23:01,450 - ERROR - powermill_strategy_app - PowerMill connection failed: win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:23:01,452 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:23:01,456 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:23:01,456 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:23:01,457 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 02:23:01,457 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 02:23:01,457 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 02:23:01,458 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 02:23:01,458 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:23:06,974 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:23:06,975 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:23:06,975 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:23:06,975 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:23:06,975 - ERROR - powermill_strategy_app - PowerMill connection failed: win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:23:06,977 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:23:06,981 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:23:06,981 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:23:06,981 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 02:23:06,982 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 02:23:06,982 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 02:23:06,983 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 02:23:06,983 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:35:07,984 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:35:07,984 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:35:08,016 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 02:35:08,017 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 02:35:08,074 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 02:35:08,383 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 02:35:08,405 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:35:08,406 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 02:35:08,406 - INFO - powermill_strategy_app - PowerMill check result: {'connected': True, 'mode': 'live', 'host': '127.0.0.1', 'port': 5000, 'status': 'connected to running PowerMill instance', 'error': '', 'project_name': None, 'model_name': 'Сборка1', 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 02:37:19,043 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:37:19,044 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:37:19,100 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 02:37:19,101 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 02:37:19,181 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 02:37:19,438 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 02:37:19,453 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:37:19,454 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 02:37:19,454 - INFO - powermill_strategy_app - PowerMill check result: {'connected': True, 'mode': 'live', 'host': '127.0.0.1', 'port': 5000, 'status': 'connected to running PowerMill instance', 'error': '', 'project_name': None, 'model_name': 'Сборка1', 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 02:47:09,368 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:47:09,369 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:47:09,369 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:47:09,369 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:47:09,370 - ERROR - powermill_strategy_app - PowerMill connection failed: win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:47:09,371 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:47:09,374 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:47:09,375 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:47:09,375 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 02:47:09,375 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 02:47:09,375 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 02:47:09,376 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 02:47:09,376 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:47:31,326 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:47:31,326 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:47:31,327 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:47:31,327 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:47:31,327 - ERROR - powermill_strategy_app - PowerMill connection failed: win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:47:31,329 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:47:31,332 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:47:31,332 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:47:31,333 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 02:47:31,333 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 02:47:31,333 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 02:47:31,333 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 02:47:31,334 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:48:56,913 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:48:56,914 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:48:56,914 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:48:56,914 - ERROR - powermill_strategy_app - win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:48:56,914 - ERROR - powermill_strategy_app - PowerMill connection failed: win32com not available on this system. PowerMill COM is only available on Windows.
+2026-10-21 02:48:56,916 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:48:56,919 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:48:56,919 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:48:56,919 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 02:48:56,920 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 02:48:56,920 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 02:48:56,920 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 02:48:56,920 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:57:08,226 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 02:57:08,226 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 02:57:08,285 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 02:57:08,285 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 02:57:08,353 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 02:57:08,601 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 02:57:08,617 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 02:57:08,618 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 02:57:08,619 - INFO - powermill_strategy_app - PowerMill check result: {'connected': True, 'mode': 'live', 'host': '127.0.0.1', 'port': 5000, 'status': 'connected to running PowerMill instance', 'error': '', 'project_name': None, 'model_name': 'Сборка1', 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 03:47:35,712 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 03:47:35,713 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 03:47:35,768 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 03:47:35,769 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 03:47:35,856 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 03:47:36,130 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 03:47:36,145 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 03:47:36,147 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 03:47:36,147 - INFO - powermill_strategy_app - PowerMill check result: {'connected': True, 'mode': 'live', 'host': '127.0.0.1', 'port': 5000, 'status': 'connected to running PowerMill instance', 'error': '', 'project_name': None, 'model_name': 'Сборка1', 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 03:47:51,548 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 03:47:51,549 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 03:47:51,591 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 03:47:51,592 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 03:47:51,648 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 03:47:51,909 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 03:47:51,925 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 03:47:51,926 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 03:47:51,927 - INFO - powermill_strategy_app - PowerMill check result: {'connected': True, 'mode': 'live', 'host': '127.0.0.1', 'port': 5000, 'status': 'connected to running PowerMill instance', 'error': '', 'project_name': None, 'model_name': 'Сборка1', 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 03:59:42,063 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 03:59:42,064 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 03:59:42,102 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 03:59:42,102 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 03:59:42,168 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 03:59:42,422 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 03:59:42,437 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 03:59:42,439 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 03:59:42,440 - INFO - powermill_strategy_app - PowerMill check result: {'connected': True, 'mode': 'live', 'host': '127.0.0.1', 'port': 5000, 'status': 'connected to running PowerMill instance', 'error': '', 'project_name': None, 'model_name': 'Сборка1', 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 04:02:10,732 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 04:02:10,732 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 04:02:10,746 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 04:02:10,746 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 04:02:10,805 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 04:02:11,058 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 04:02:11,079 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 04:02:11,079 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 04:02:11,080 - INFO - powermill_strategy_app - PowerMill check result: {'connected': True, 'mode': 'live', 'host': '127.0.0.1', 'port': 5000, 'status': 'connected to running PowerMill instance', 'error': '', 'project_name': None, 'model_name': 'Сборка1', 'models_count': 0, 'stock_models_count': 0}
+2026-10-21 04:02:11,255 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 04:02:11,255 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 04:02:11,270 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 04:02:11,270 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 04:02:11,334 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 04:02:11,572 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 04:02:11,585 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 04:02:11,585 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
+2026-10-21 04:02:36,785 - INFO - powermill_strategy_app - Starting PowerMill COM connection attempt. Tried prog IDs: ['PowerMill.Application', 'PowerMill.Application.2024', 'Autodesk.PowerMill.Application', 'Autodesk.PowerMill.Application.2024', 'PowerMill.Application.2023', 'PowerMill.Application.2022']
+2026-10-21 04:02:36,785 - INFO - powermill_strategy_app - Initializing COM apartment for PowerMill access.
+2026-10-21 04:02:36,798 - INFO - powermill_strategy_app - PowerMill object found via GetActiveObject: PowerMill.Application
+2026-10-21 04:02:36,798 - INFO - powermill_strategy_app - PowerMill connection successful. Status: connected to running PowerMill instance
+2026-10-21 04:02:36,861 - INFO - powermill_strategy_app - PowerMill project reference obtained: True
+2026-10-21 04:02:37,140 - INFO - powermill_strategy_app - PowerMill model loaded: Сборка1
+2026-10-21 04:02:37,158 - INFO - powermill_strategy_app - COM apartment released after PowerMill project/model read.
+2026-10-21 04:02:37,158 - INFO - powermill_strategy_app - PowerMill connection already cached and valid.
